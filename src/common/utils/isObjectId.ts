@@ -6,7 +6,6 @@ const isValidObjectId = (id: string): boolean => {
     if (String(new ObjectId(id)) === id) return true;
     return false;
   }
-  return false;
 };
 
 export { isValidObjectId };

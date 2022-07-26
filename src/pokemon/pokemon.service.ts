@@ -9,7 +9,7 @@ import { Model } from 'mongoose';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Pokemon } from './entities/pokemon.entity';
-import { isValidObjectId } from './helpers/isObjectId';
+import { isValidObjectId } from '../common/utils/isObjectId';
 
 @Injectable()
 export class PokemonService {
@@ -79,13 +79,13 @@ export class PokemonService {
     // await pokemon.deleteOne();
     // return { id };
     // const result = await this.pokemonModel.findByIdAndDelete( id );
-    if (!isValidObjectId(id)) {
-      throw new BadRequestException(`${id} is not a valid MongoID`);
-    }
+    // if (!isValidObjectId(id)) {
+    //   throw new BadRequestException(`${id} is not a valid MongoID`);
+    // }
 
     const { deletedCount } = await this.pokemonModel.deleteOne({ _id: id });
     if (deletedCount === 0)
-      throw new BadRequestException(`Pokemon with id >> ${id} << not found`);
+      throw new BadRequestException(`Pokemon with id :: ${id} :: not found`);
 
     return;
   }
