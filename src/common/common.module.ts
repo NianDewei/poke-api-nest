@@ -6,3 +6,8 @@ import { AxiosAdapter } from './adapters/axios.adapter';
   exports: [AxiosAdapter],
 })
 export class CommonModule {}
+
+/**
+ * TODO:
+ *A provider is generated, for axios and to make its use transparent.
+ */
